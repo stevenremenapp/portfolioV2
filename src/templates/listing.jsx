@@ -1,5 +1,5 @@
 import React from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../layout";
 import PostListing from "../components/PostListing/PostListing";
@@ -9,16 +9,16 @@ import "./listing.css";
 
 class Listing extends React.Component {
   renderPaging() {
-    const { currentPageNum, pageCount } = this.props.pageContext;
-    const prevPage = currentPageNum - 1 === 1 ? "/" : `/${currentPageNum - 1}/`;
-    const nextPage = `/${currentPageNum + 1}/`;
-    const isFirstPage = currentPageNum === 1;
-    const isLastPage = currentPageNum === pageCount;
+    const { pageContext } = this.props;
+    const prevPage = pageContext.currentPageNum - 1 === 1 ? "/" : `/${pageContext.currentPageNum - 1}/`;
+    const nextPage = `/${pageContext.currentPageNum + 1}/`;
+    const isFirstPage = pageContext.currentPageNum === 1;
+    const isLastPage = pageContext.currentPageNum === pageContext.pageCount;
 
     return (
       <div className="paging-container">
         {!isFirstPage && <Link to={prevPage}>Previous</Link>}
-        {[...Array(pageCount)].map((_val, index) => {
+        {[...Array(pageContext.pageCount)].map((_val, index) => {
           const pageNum = index + 1;
           return (
             <Link
@@ -35,7 +35,7 @@ class Listing extends React.Component {
   }
 
   render() {
-    const postEdges = this.props.data.allMarkdownRemark.edges;
+    const { data } = this.props;
 
     return (
       <Layout>
@@ -43,7 +43,7 @@ class Listing extends React.Component {
           <div className="posts-container">
             <Helmet title={config.siteTitle} />
             <SEO />
-            <PostListing postEdges={postEdges} />
+            <PostListing postEdges={data.allMarkdownRemark.edges} />
           </div>
           {this.renderPaging()}
         </div>

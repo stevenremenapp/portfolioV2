@@ -5,3 +5,9 @@
   align-items: center;
   max-width: 100%;
 }
+
+@media (max-width: 576px) {
+  .user-links {
+    margin: 1rem auto;
+  }
+}

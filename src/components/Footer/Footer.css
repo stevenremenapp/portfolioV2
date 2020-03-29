@@ -1,7 +1,16 @@
 .footer {
-  justify-content: center;
-  align-content: center;
-  padding: 10px 5px 5px;
+  flex: 0;
+  padding: 3rem 0;
+}
+@media (max-width: 576px) {
+  .footer {
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+  }
+}
+.footer-content {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .notice-container {
@@ -10,12 +19,15 @@
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 1rem;
 }
 
-@media (max-width: 640px - 1px) {
+@media (max-width: 576px) {
   .notice-container {
+    flex-direction: column;
     justify-content: space-around;
+    align-items: baseline;
+    margin-top: 0;
   }
 }
 

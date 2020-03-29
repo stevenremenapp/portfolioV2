@@ -3,10 +3,10 @@ import "./UserLinks.css";
 
 class UserLinks extends Component {
   getLinkElements() {
-    const { userLinks } = this.props.config;
+    const { config } = this.props;
     const { labeled } = this.props;
-    return userLinks.map(link => (
-      <a href={link.url}>
+    return config.userLinks.map(link => (
+      <a href={link.url} key={link.label} target={link.targetBlank ? "_blank" : "_self"} rel={link.targetBlank ? "noopener noreferrer" : ""}>
         <button type="button" key={link.label}>
           {labeled ? link.label : ""}
         </button>
@@ -15,8 +15,8 @@ class UserLinks extends Component {
   }
 
   render() {
-    const { userLinks } = this.props.config;
-    if (!userLinks) {
+    const { config } = this.props;
+    if (!config.userLinks) {
       return null;
     }
     return <div className="user-links">{this.getLinkElements()}</div>;

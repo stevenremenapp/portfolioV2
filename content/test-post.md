@@ -1,8 +1,8 @@
 ---
-title: "The Fairy's Witches"
+title: "Test Post"
 cover: "3.jpg"
-category: "something"
-date: "04-02-2017"
+category: "test"
+date: "03-21-2020"
 ---
 
 # Eram mora tuas in inter ferens caterva
