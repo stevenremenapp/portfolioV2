@@ -22,17 +22,3 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-.header {
-  flex: 0;
-  padding: 3rem 0;
-}
-@media (max-width: 576px) {
-  .header {
-    padding: 1.5rem 0;
-  }
-}
-.header h1 {
-  width: 90%;
-  margin: 0 auto;
-}

@@ -26,7 +26,7 @@ class PostListing extends React.Component {
         {/* Your post list here. */
         postList.map(post => (
           <Link to={post.path} key={post.title}>
-            <h1>{post.title}</h1>
+            <h2>{post.title}</h2>
           </Link>
         ))
         }

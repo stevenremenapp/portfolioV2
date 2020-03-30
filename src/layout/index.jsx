@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import config from "../../data/SiteConfig";
 import Header from "../components/Header/Header";
-import About from "../components/About/About";
+// import About from "../components/About/About";
 import Footer from "../components/Footer/Footer";
 import "./index.css";
 
@@ -16,7 +16,7 @@ export default class MainLayout extends React.Component {
           <html lang="en" />
         </Helmet>
         <Header />
-        <About />
+        {/* <About /> */}
         {children}
         <Footer config={config} />
       </div>

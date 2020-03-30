@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../layout";
 import PostListing from "../components/PostListing/PostListing";
+import About from "../components/About/About";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 import "./listing.css";
@@ -39,10 +40,16 @@ class Listing extends React.Component {
 
     return (
       <Layout>
+        {/* About here so it can show up on the main page also */}
+        <About />
         <div className="listing-container">
           <div className="posts-container">
             <Helmet title={config.siteTitle} />
             <SEO />
+            <div>
+              <h1>TIL</h1>
+              <p>I&apos;m using this site to document the things I&apos;m learning through public notetaking.</p>
+            </div>
             <PostListing postEdges={data.allMarkdownRemark.edges} />
           </div>
           {this.renderPaging()}
